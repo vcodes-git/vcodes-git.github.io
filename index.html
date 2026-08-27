@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivek Patel — Computing Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F5;
+    --ink:#1A1A17;
+    --ink-soft:#6E6B62;
+    --rule:#CFCBC0;
+    --link:#1D3E6E;
+    --add:#1A7F37;
+    --track:#E4E1D8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'EB Garamond', Georgia, serif;
+    font-size:18px;
+    line-height:1.6;
+  }
+  .wrap{
+    max-width:700px;
+    margin:0 auto;
+    padding:64px 24px 80px;
+  }
+  a{color:var(--link); text-decoration:underline; text-underline-offset:2px;}
+  a:focus-visible{outline:2px solid var(--link); outline-offset:2px;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+
+  /* ---- Header ---- */
+  h1{
+    font-variant-caps:small-caps;
+    font-weight:600;
+    font-size:44px;
+    letter-spacing:0.01em;
+    margin:0 0 4px;
+    line-height:1.1;
+  }
+  .affiliation{
+    font-style:italic;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+    font-size:18px;
+  }
+  .contact-line{
+    font-size:15px;
+    color:var(--ink-soft);
+  }
+  .contact-line a{color:var(--link);}
+  header hr{
+    border:none;
+    border-top:1.5px solid var(--ink);
+    margin:22px 0 30px;
+  }
+
+  /* ---- Abstract ---- */
+  .abstract-label{
+    font-variant:small-caps;
+    letter-spacing:0.04em;
+    font-weight:600;
+    font-size:16px;
+    margin:0 0 6px;
+  }
+  .abstract p{
+    text-align:justify;
+    hyphens:auto;
+    margin:0 0 8px;
+  }
+  .abstract .mono{font-size:16px;}
+
+  /* ---- Section headings ---- */
+  h2{
+    font-size:22px;
+    font-weight:600;
+    margin:44px 0 18px;
+    border-top:1px solid var(--rule);
+    padding-top:28px;
+  }
+  section:first-of-type h2{border-top:none; padding-top:0;}
+  h3{
+    font-size:19px;
+    font-weight:600;
+    margin:30px 0 2px;
+  }
+  h3 .num{color:var(--ink-soft); font-weight:400; margin-right:6px;}
+  .meta-line{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:2px 14px;
+    font-size:15px;
+    margin:0 0 12px;
+  }
+  .meta-line .stack{font-style:italic; color:var(--ink-soft);}
+  .meta-line .when{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .meta-line .when a{color:var(--ink-soft);}
+
+  .entry ul{
+    margin:0 0 6px;
+    padding:0;
+    list-style:none;
+  }
+  .entry li{
+    margin:0 0 10px;
+    padding-left:1.3em;
+    text-indent:-1.3em;
+  }
+  .entry li::before{
+    content:"–  ";
+    color:var(--ink-soft);
+  }
+  .entry li .m{font-family:'JetBrains Mono', monospace; font-size:16px;}
+
+  /* ---- Verified-ownership tables (signature element) ---- */
+  .table-block{margin:18px 0 26px;}
+  .table-caption{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table th{
+    text-align:left;
+    font-weight:600;
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);
+    border-top:1.5px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    padding:6px 10px 6px 0;
+  }
+  table td{
+    padding:8px 10px 8px 0;
+    border-bottom:1px solid var(--rule);
+    vertical-align:middle;
+  }
+  table tr:last-child td{border-bottom:1.5px solid var(--ink);}
+  table td.file{font-family:'JetBrains Mono', monospace; font-size:13.5px;}
+  table td.num{font-family:'JetBrains Mono', monospace; font-size:13px; white-space:nowrap; color:var(--ink-soft);}
+  .bar-cell{width:38%;}
+  .bar-track{
+    height:7px;
+    background:var(--track);
+    border-radius:1px;
+    display:flex;
+    overflow:hidden;
+  }
+  .bar-add{background:var(--add); height:100%;}
+  .bar-rest{background:var(--track); height:100%;}
+
+  /* ---- Skills ---- */
+  .skills-list p{margin:0 0 8px; font-size:16.5px;}
+  .skills-list .label{font-variant:small-caps; font-weight:600;}
+
+  /* ---- References / footer ---- */
+  .refs{
+    margin-top:48px;
+    padding-top:24px;
+    border-top:1px solid var(--rule);
+    font-size:15px;
+  }
+  .refs ol{padding-left:1.4em; margin:0;}
+  .refs li{margin-bottom:6px;}
+  .colophon{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin-top:56px;
+  }
+
+  @media (max-width:520px){
+    body{font-size:16.5px;}
+    h1{font-size:36px;}
+    .wrap{padding:44px 18px 60px;}
+    table{font-size:13px;}
+    .bar-cell{width:30%;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Vivek Patel</h1>
+    <p class="affiliation">B.Sc. Computing Science, University of Alberta — Systems &amp; Applied ML</p>
+    <p class="contact-line">
+      587-938-7059 ·
+      <a href="mailto:patelvivek2372@gmail.com">patelvivek2372@gmail.com</a> ·
+      <a href="https://linkedin.com/in/vivekra1" target="_blank" rel="noopener">linkedin.com/in/vivekra1</a> ·
+      <a href="https://github.com/vcodes-git" target="_blank" rel="noopener">github.com/vcodes-git</a> ·
+      <a href="Vivek_Patel_Resume.pdf" download>resume (pdf)</a>
+    </p>
+    <hr>
+  </header>
+
+  <section class="abstract">
+    <p class="abstract-label">Abstract</p>
+    <p>This page documents verified engineering work rather than self-assessment. It covers a 3D reconstruction pipeline that reduces point-cloud matching complexity from <span class="mono">O(N²)</span> to <span class="mono">O(N log N)</span>, a retrieval-augmented LLM service deployed with least-privilege IAM on Azure, and two team projects whose ownership claims are backed by git commit history and current-state blame rather than description. Where a contribution is shared, the table beside it shows exactly how it is shared. Every repository is linked in the references below.</p>
+  </section>
+
+  <section>
+    <h2>1. Education</h2>
+    <p>University of Alberta — B.Sc. Computing Science, June 2026. 3.9 GPA, First Class Honors, Dean's Silver Medal in Science.</p>
+    <p style="font-size:16px; color:var(--ink-soft);">Relevant coursework: Algorithms I, Intro to Software Engineering, Network Security, Natural Language Processing, Basics of Machine Learning, File &amp; Database Management.</p>
+  </section>
+
+  <section>
+    <h2>2. Projects</h2>
+
+    <div class="entry">
+      <h3><span class="num">2.1</span>3D Architectural Reconstruction Pipeline</h3>
+      <div class="meta-line">
+        <span class="stack">Python, COLMAP, computer vision, NumPy</span>
+        <span class="when mono">Apr 2026 · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">repo ↗</a></span>
+      </div>
+      <ul>
+        <li>Eliminated fragmented point cloud failures by replacing sequential brute-force matching with a temporal window-based approach and KD-tree indexed ANN search, reducing matching complexity from <span class="m">O(N²)</span> to <span class="m">O(N log N)</span>.</li>
+        <li>Wrote a script to inject verified matches into COLMAP's SQLite database, correcting radial distortion via OpenCV-to-PINHOLE conversion and applying SOR and DBSCAN outlier removal to achieve sub-pixel reprojection accuracy (<span class="m">0.421px</span>).</li>
+        <li>Implemented 3D Gaussian Splatting over 30,000 iterations initialized from the cleaned sparse point cloud, achieving under <span class="m">2.3%</span> geometric error on window dimensions verified against real-world measurements.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.2</span>End-to-End NLP &amp; Language Generation Pipeline</h3>
+      <div class="meta-line">
+        <span class="stack">Python, n-grams, CFG, regex</span>
+        <span class="when mono">Sept – Dec 2025</span>
+      </div>
+      <ul>
+        <li>Wrote the core preprocessing pipeline for a phonetic transcription system converting CHILDES transcripts into ARPAbet pronunciations, including a fallback approximator that stitches known sub-word pronunciations for out-of-dictionary words.</li>
+        <li>Ported and extended a hand-built context-free grammar and CYK-style parser to classify sentence grammaticality, contributing most of the analysis behind <span class="m">33.59%</span> precision and <span class="m">62.59%</span> recall across 603 test cases.</li>
+        <li>Co-authored the corpus preprocessing and n-gram training/evaluation modules with two teammates, implementing CLI validation and JSON model serialization and resolving merge conflicts to integrate parallel work.</li>
+        <li>Owned the largest share of the language modeling and generation codebase, implementing OOV/UNK thresholding and all three text-generation modes, and tuning interpolation weights via grid search and EM.</li>
+      </ul>
+
+      <div class="table-block">
+        <p class="table-caption">Table 1. Net lines changed on the four largest files, by commit diff (asn4 — the assignment carrying the OOV/tuning work above). Bar length scaled to the largest total change in the set; green segment is additions.</p>
+        <table>
+          <thead><tr><th>File</th><th class="bar-cell">Diff</th><th>Changed</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="file">src/eval.py</td>
+              <td class="bar-cell"><div class="bar-track" style="width:79%"><span class="bar-add" style="width:83%"></span><span class="bar-rest" style="width:17%"></span></div></td>
+              <td class="num">+341 / −70</td>
+            </tr>
+            <tr>
+              <td class="file">src/train.py</td>
+              <td class="bar-cell"><div class="bar-track" style="width:59%"><span class="bar-add" style="width:87%"></span><span class="bar-rest" style="width:13%"></span></div></td>
+              <td class="num">+268 / −39</td>
+            </tr>
+            <tr>
+              <td class="file">src/tune.py</td>
+              <td class="bar-cell"><div class="bar-track" style="width:100%"><span class="bar-add" style="width:51%"></span><span class="bar-rest" style="width:49%"></span></div></td>
+              <td class="num">+264 / −256</td>
+            </tr>
+            <tr>
+              <td class="file">src/preprocessor.py</td>
+              <td class="bar-cell"><div class="bar-track" style="width:52%"><span class="bar-add" style="width:90%"></span><span class="bar-rest" style="width:10%"></span></div></td>
+              <td class="num">+243 / −26</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.3</span>Aethon Events Management Platform</h3>
+      <div class="meta-line">
+        <span class="stack">Java, Android Studio, Firebase, NoSQL</span>
+        <span class="when mono">Dec 2024 · <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">repo ↗</a></span>
+      </div>
+      <ul>
+        <li>Built the app's device-recognition entry point, querying Firestore by device ID to route users to the Admin interface, main app, or sign-up flow based on account role.</li>
+        <li>Owned the notification system end-to-end, rewriting an initial MVC scaffold into Firestore-driven logic that builds and delivers per-event notifications, backed by a dedicated JUnit test suite covering notification, profile, and sign-up flows.</li>
+      </ul>
+
+      <div class="table-block">
+        <p class="table-caption">Table 2. Current-state ownership by git blame, four-person team. Bar shows share of the file's present-day lines that are mine.</p>
+        <table>
+          <thead><tr><th>File</th><th class="bar-cell">Share</th><th>Lines</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="file">LandingActivity.java</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:99%"></span><span class="bar-rest" style="width:1%"></span></div></td>
+              <td class="num">81 / 82</td>
+            </tr>
+            <tr>
+              <td class="file">MainActivity.java <span style="color:var(--ink-soft); font-style:italic;">(notifications)</span></td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:59%"></span><span class="bar-rest" style="width:41%"></span></div></td>
+              <td class="num">161 / 275</td>
+            </tr>
+            <tr>
+              <td class="file">ProfileActivity.java</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:56%"></span><span class="bar-rest" style="width:44%"></span></div></td>
+              <td class="num">141 / 250</td>
+            </tr>
+            <tr>
+              <td class="file">SignUpActivity.java</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:48%"></span><span class="bar-rest" style="width:52%"></span></div></td>
+              <td class="num">89 / 184</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.4</span>GenAI RAG API Microservice</h3>
+      <div class="meta-line">
+        <span class="stack">Python, LangChain, FastAPI, Docker, Azure</span>
+        <span class="when mono">Jan – Apr 2026 · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">repo ↗</a></span>
+      </div>
+      <ul>
+        <li>Built an agentic LLM orchestration pipeline using LangChain and ChromaDB for retrieval-augmented generation, extracting structured business insights from a 10,000-row dataset via local HuggingFace transformer embeddings, and containerized the service with Docker and GitHub Actions CI/CD.</li>
+        <li>Deployed the service on Azure Container Apps with Key Vault-backed secret management and a system-assigned managed identity, scoping AcrPull and Key Vault Secrets User roles to enforce least-privilege access at runtime.</li>
+        <li>Accelerated development with Claude Code for boilerplate generation and debugging across the FastAPI service and Pydantic schemas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Experience</h2>
+    <div class="entry">
+      <h3 style="margin-top:0;">Undergraduate Research Assistant</h3>
+      <div class="meta-line">
+        <span class="stack">University of Alberta — supervised by Prof. Rupam Mahmood</span>
+        <span class="when mono">May – Aug 2025</span>
+      </div>
+      <ul>
+        <li>Contributed to applied AI research by deploying a streaming actor-critic reinforcement learning policy onto a resource-constrained ESP32-S3 microcontroller, translating a research-stage algorithm into a working real-time system.</li>
+        <li>Developed deep working knowledge of an in-house C++ autograd backend and on-device training loop, running experiments and parameter tuning to optimize performance under real hardware constraints.</li>
+        <li>Processed high-frequency real-time sensor data and implemented online running statistics for observation and reward normalization, maintaining stable model performance under dynamic operating conditions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills-list">
+    <h2>4. Skills</h2>
+    <p><span class="label">Languages —</span> Python, Java, C/C++, SQL</p>
+    <p><span class="label">AI/ML &amp; deep learning —</span> PyTorch, TensorFlow, Scikit-learn, LangChain, HuggingFace, NumPy, Pandas, OpenCV</p>
+    <p><span class="label">Systems &amp; security —</span> Linux/Unix, Docker, CI/CD (GitHub Actions), Git, network security fundamentals, pwntools</p>
+    <p><span class="label">Data &amp; cloud —</span> vector databases (ChromaDB), SQLite/MySQL, Firebase Firestore, Azure (Container Apps, Key Vault)</p>
+    <p><span class="label">Practices —</span> data structures &amp; algorithms, data preprocessing, model evaluation, Agile/Scrum, AI-assisted development (Claude Code)</p>
+  </section>
+
+  <div class="refs">
+    <p class="abstract-label">References</p>
+    <ol>
+      <li>3D Architectural Reconstruction Pipeline — <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">github.com/vcodes-git/ReconstructionOfHistoricBuildings</a></li>
+      <li>GenAI RAG API Microservice — <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">github.com/vcodes-git/agentic-retail-agent</a></li>
+      <li>Aethon Events Management Platform — <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">github.com/CMPUT301F24helios/Aethon-Events</a></li>
+      <li>Full resume — <a href="Vivek_Patel_Resume.pdf" download>Vivek_Patel_Resume.pdf</a></li>
+    </ol>
+  </div>
+
+  <p class="colophon">Vivek Patel · Edmonton, Alberta · last compiled June 2026</p>
+
+</div>
+</body>
+</html>
