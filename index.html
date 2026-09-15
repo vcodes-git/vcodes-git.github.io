@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vivek Rajeshbhai Patel — Computing Science</title>
+<title>Vivek Patel · Computing Science</title>
+<meta name="description" content="Verified, git-backed engineering portfolio: LLM/RAG systems, embedded on-device RL, computer vision, and full-stack team projects by Vivek Patel, B.Sc. Computing Science, University of Alberta.">
+<meta property="og:title" content="Vivek Patel · Computing Science">
+<meta property="og:description" content="Verified, git-backed engineering portfolio: LLM/RAG systems, embedded on-device RL, computer vision, and full-stack team projects by Vivek Patel, B.Sc. Computing Science, University of Alberta.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vivek Patel · Computing Science">
+<meta name="twitter:description" content="Verified, git-backed engineering portfolio: LLM/RAG systems, embedded on-device RL, computer vision, and full-stack team projects by Vivek Patel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -125,7 +132,7 @@
   .entry li .m{font-family:'JetBrains Mono', monospace; font-size:16px;}
 
   /* ---- Verified-ownership tables (signature element) ---- */
-  .table-block{margin:18px 0 26px;}
+  .table-block{margin:18px 0 26px; overflow-x:auto;}
   .table-caption{
     font-size:14px;
     color:var(--ink-soft);
@@ -133,6 +140,7 @@
   }
   table{
     width:100%;
+    min-width:420px;
     border-collapse:collapse;
     font-size:14.5px;
   }
@@ -169,6 +177,18 @@
   .skills-list p{margin:0 0 8px; font-size:16.5px;}
   .skills-list .label{font-variant:small-caps; font-weight:600;}
 
+  /* ---- Project tier divider ---- */
+  .tier-divider{
+    font-variant:small-caps;
+    letter-spacing:0.05em;
+    font-weight:600;
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:36px 0 18px;
+    padding-top:20px;
+    border-top:1px dashed var(--rule);
+  }
+
   /* ---- References / footer ---- */
   .refs{
     margin-top:48px;
@@ -199,8 +219,8 @@
 <div class="wrap">
 
   <header>
-    <h1>Vivek Rajeshbhai Patel</h1>
-    <p class="affiliation">B.Sc. Computing Science, University of Alberta — Systems &amp; Applied ML</p>
+    <h1>Vivek Patel</h1>
+    <p class="affiliation">B.Sc. Computing Science, University of Alberta · Systems &amp; Applied ML</p>
     <p class="contact-line">
       587-938-7059 ·
       <a href="mailto:patelvivek2372@gmail.com">patelvivek2372@gmail.com</a> ·
@@ -213,20 +233,46 @@
 
   <section class="abstract">
     <p class="abstract-label">Abstract</p>
-    <p>This page documents verified engineering work rather than self-assessment. It covers a 3D reconstruction pipeline that reduces point-cloud matching complexity from <span class="mono">O(N²)</span> to <span class="mono">O(N log N)</span>, a retrieval-augmented LLM service deployed with least-privilege IAM on Azure, and two team projects whose ownership claims are backed by git commit history and current-state blame rather than description. Where a contribution is shared, the table beside it shows exactly how it is shared. Every repository is linked in the references below.</p>
+    <p>This page documents verified engineering work rather than self-assessment. It covers a retrieval-augmented LLM service deployed with least-privilege IAM on Azure, a 3D reconstruction pipeline that reduces point-cloud matching complexity from <span class="mono">O(N²)</span> to <span class="mono">O(N log N)</span>, and three team projects whose ownership claims are backed by git commit history and current-state blame rather than description. Where a contribution is shared, the table beside it shows exactly how it is shared. Repository links are provided in the references below wherever a public repo exists.</p>
   </section>
 
   <section>
     <h2>1. Education</h2>
-    <p>University of Alberta — B.Sc. Computing Science, June 2026. 3.9 GPA, First Class Honors, Dean's Silver Medal in Science.</p>
-    <p style="font-size:16px; color:var(--ink-soft);">Relevant coursework: Algorithms I, Intro to Software Engineering, Network Security, Natural Language Processing, Basics of Machine Learning, File &amp; Database Management.</p>
+    <p>University of Alberta, B.Sc. Computing Science, June 2026. 3.9 GPA, First Class Honors, Dean's Silver Medal in Science.</p>
+    <p style="font-size:16px; color:var(--ink-soft);">Relevant coursework: Reinforcement Learning, Computer Vision, Natural Language Processing, Machine Learning II, Basics of Machine Learning, Algorithms I.</p>
   </section>
 
   <section>
     <h2>2. Projects</h2>
 
     <div class="entry">
-      <h3><span class="num">2.1</span>3D Architectural Reconstruction Pipeline</h3>
+      <h3><span class="num">2.1</span>GenAI RAG API Microservice</h3>
+      <div class="meta-line">
+        <span class="stack">Python, LangChain, FastAPI, Docker, Azure</span>
+        <span class="when mono">Jan – Apr 2026 · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">repo ↗</a></span>
+      </div>
+      <ul>
+        <li>Built an agentic LLM orchestration pipeline using LangChain and ChromaDB for retrieval-augmented generation, extracting structured business insights from a 10,000-row dataset via local HuggingFace transformer embeddings, and containerized the service with Docker and GitHub Actions CI/CD.</li>
+        <li>Deployed the service on Azure Container Apps with Key Vault-backed secret management and a system-assigned managed identity, scoping AcrPull and Key Vault Secrets User roles to enforce least-privilege access at runtime.</li>
+        <li>Accelerated development with Claude Code for boilerplate generation and debugging across the FastAPI service and Pydantic schemas.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.2</span>Machine Learning Algorithm Implementations</h3>
+      <div class="meta-line">
+        <span class="stack">Python, NumPy, SciPy</span>
+        <span class="when mono">Dec 2025</span>
+      </div>
+      <ul>
+        <li>Built a supervised autoencoder with a from-scratch deep neural network architecture, including custom evaluation metrics and k-fold cross-validation for hyperparameter selection and model validation.</li>
+        <li>Implemented mini-batch gradient descent with MSE loss and Lasso (L1) / Ridge (L2) regularization, grounding the optimization pipeline directly in linear algebra and statistics rather than a deep learning framework.</li>
+        <li>Developed kernel and linear data representations with Lasso-based prototype selection, evaluating feature sparsity and generalization via repeated random subsampling.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.3</span>3D Architectural Reconstruction Pipeline</h3>
       <div class="meta-line">
         <span class="stack">Python, COLMAP, computer vision, NumPy</span>
         <span class="when mono">Apr 2026 · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">repo ↗</a></span>
@@ -239,7 +285,7 @@
     </div>
 
     <div class="entry">
-      <h3><span class="num">2.2</span>End-to-End NLP &amp; Language Generation Pipeline</h3>
+      <h3><span class="num">2.4</span>End-to-End NLP &amp; Language Generation Pipeline</h3>
       <div class="meta-line">
         <span class="stack">Python, n-grams, CFG, regex</span>
         <span class="when mono">Sept – Dec 2025</span>
@@ -252,7 +298,7 @@
       </ul>
 
       <div class="table-block">
-        <p class="table-caption">Table 1. Net lines changed on the four largest files, by commit diff (asn4 — the assignment carrying the OOV/tuning work above). Bar length scaled to the largest total change in the set; green segment is additions.</p>
+        <p class="table-caption">Table 1. Net lines changed on the four largest files, by commit diff (asn4, the assignment carrying the OOV/tuning work above). Bar length scaled to the largest total change in the set; green segment is additions.</p>
         <table>
           <thead><tr><th>File</th><th class="bar-cell">Diff</th><th>Changed</th></tr></thead>
           <tbody>
@@ -281,8 +327,10 @@
       </div>
     </div>
 
+    <p class="tier-divider">Additional Projects</p>
+
     <div class="entry">
-      <h3><span class="num">2.3</span>Aethon Events Management Platform</h3>
+      <h3><span class="num">2.5</span>Aethon Events Management Platform</h3>
       <div class="meta-line">
         <span class="stack">Java, Android Studio, Firebase, NoSQL</span>
         <span class="when mono">Dec 2024 · <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">repo ↗</a></span>
@@ -323,16 +371,85 @@
     </div>
 
     <div class="entry">
-      <h3><span class="num">2.4</span>GenAI RAG API Microservice</h3>
+      <h3><span class="num">2.6</span>Autonomous Penalty Shooter Robot</h3>
       <div class="meta-line">
-        <span class="stack">Python, LangChain, FastAPI, Docker, Azure</span>
-        <span class="when mono">Jan – Apr 2026 · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">repo ↗</a></span>
+        <span class="stack">Python, BLDC motors, CAN bus, PID control</span>
+        <span class="when mono">Dec 2025</span>
       </div>
       <ul>
-        <li>Built an agentic LLM orchestration pipeline using LangChain and ChromaDB for retrieval-augmented generation, extracting structured business insights from a 10,000-row dataset via local HuggingFace transformer embeddings, and containerized the service with Docker and GitHub Actions CI/CD.</li>
-        <li>Deployed the service on Azure Container Apps with Key Vault-backed secret management and a system-assigned managed identity, scoping AcrPull and Key Vault Secrets User roles to enforce least-privilege access at runtime.</li>
-        <li>Accelerated development with Claude Code for boilerplate generation and debugging across the FastAPI service and Pydantic schemas.</li>
+        <li>Built a robotic penalty-kicking system using two brushless DC (BLDC) motors and Moteus controllers over a CAN bus interface to actuate a custom metal leg structure.</li>
+        <li>Developed a Python control pipeline applying quadratic and linear interpolation alongside trigonometric modeling to map 2D GUI coordinates to motor commands.</li>
+        <li>Tuned PID gains for motor stiffness and characterized hardware acceleration limits, reaching a targeting accuracy with an error margin smaller than the ball's diameter at a <span class="m">2.5m</span> range.</li>
       </ul>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.7</span>Applied Cryptography &amp; Security Coursework</h3>
+      <div class="meta-line">
+        <span class="stack">C/C++, Python, OpenSSL, Wireshark, pwntools</span>
+        <span class="when mono">Feb – Mar 2026</span>
+      </div>
+      <ul>
+        <li>Implemented a Winternitz One-Time Signature (WOTS) scheme with OpenSSL and SHA3-256, and designed a Chosen Plaintext Attack that recovered the <span class="m">128-bit</span> secret key of a custom AES-128/ARIA-128 hybrid cipher.</li>
+        <li>Analyzed encrypted TLS traffic with Wireshark and tcpdump and built a buffer-overflow exploit in isolated VM environments to study key-exchange and memory-safety vulnerabilities firsthand.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.8</span>Iron Wild</h3>
+      <div class="meta-line">
+        <span class="stack">Unity 2019.4, C#, Cinemachine</span>
+        <span class="when mono">Sept 2024 – Feb 2025 · <a href="https://github.com/CMPUT250-100YEARS/Iron-Wild" target="_blank" rel="noopener">repo ↗</a> · <a href="https://vcodes-itch.itch.io/iron-wild-gold" target="_blank" rel="noopener">play ↗</a></span>
+      </div>
+      <ul>
+        <li>Built the mini-boss's AI and attack loop in a 6-person Unity survival game: patrol/hover behavior, a telegraphed dive attack, and health/death state handling.</li>
+        <li>Built the projectile and damage-routing system connecting player attacks to four enemy types, plus a reusable Cinemachine-based camera-shake utility triggered on impact.</li>
+        <li>Built an NPC companion with follow/hide behavior driven by player visibility, and the detection-trigger plumbing shared across enemy types.</li>
+      </ul>
+
+      <div class="table-block">
+        <p class="table-caption">Table 3. Current-state ownership by git blame, 6-person team (CMPUT 250). Bar shows share of the file's present-day lines that are mine. Player.cs and Enemy.cs are original interface/plumbing code that survives after a teammate rewrote the movement and AI implementations on top of it.</p>
+        <table>
+          <thead><tr><th>File</th><th class="bar-cell">Share</th><th>Lines</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="file">CineMCamShake.cs</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:100%"></span><span class="bar-rest" style="width:0%"></span></div></td>
+              <td class="num">58 / 58</td>
+            </tr>
+            <tr>
+              <td class="file">DetectionZone.cs</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:94%"></span><span class="bar-rest" style="width:6%"></span></div></td>
+              <td class="num">45 / 48</td>
+            </tr>
+            <tr>
+              <td class="file">Kid.cs</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:86%"></span><span class="bar-rest" style="width:14%"></span></div></td>
+              <td class="num">119 / 138</td>
+            </tr>
+            <tr>
+              <td class="file">Bullet.cs</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:83%"></span><span class="bar-rest" style="width:17%"></span></div></td>
+              <td class="num">96 / 115</td>
+            </tr>
+            <tr>
+              <td class="file">MiniBoss.cs</td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:71%"></span><span class="bar-rest" style="width:29%"></span></div></td>
+              <td class="num">273 / 383</td>
+            </tr>
+            <tr>
+              <td class="file">Player.cs <span style="color:var(--ink-soft); font-style:italic;">(prototyped)</span></td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:18%"></span><span class="bar-rest" style="width:82%"></span></div></td>
+              <td class="num">205 / 1143</td>
+            </tr>
+            <tr>
+              <td class="file">Enemy.cs <span style="color:var(--ink-soft); font-style:italic;">(prototyped)</span></td>
+              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:17%"></span><span class="bar-rest" style="width:83%"></span></div></td>
+              <td class="num">48 / 285</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -341,7 +458,7 @@
     <div class="entry">
       <h3 style="margin-top:0;">Undergraduate Research Assistant</h3>
       <div class="meta-line">
-        <span class="stack">University of Alberta — supervised by Prof. Rupam Mahmood</span>
+        <span class="stack">University of Alberta (supervised by Prof. Rupam Mahmood)</span>
         <span class="when mono">May – Aug 2025</span>
       </div>
       <ul>
@@ -354,24 +471,28 @@
 
   <section class="skills-list">
     <h2>4. Skills</h2>
-    <p><span class="label">Languages —</span> Python, Java, C/C++, SQL</p>
-    <p><span class="label">AI/ML &amp; deep learning —</span> PyTorch, TensorFlow, Scikit-learn, LangChain, HuggingFace, NumPy, Pandas, OpenCV</p>
-    <p><span class="label">Systems &amp; security —</span> Linux/Unix, Docker, CI/CD (GitHub Actions), Git, network security fundamentals, pwntools</p>
-    <p><span class="label">Data &amp; cloud —</span> vector databases (ChromaDB), SQLite/MySQL, Firebase Firestore, Azure (Container Apps, Key Vault)</p>
-    <p><span class="label">Practices —</span> data structures &amp; algorithms, data preprocessing, model evaluation, Agile/Scrum, AI-assisted development (Claude Code)</p>
+    <p><span class="label">Languages:</span> Python, Java, C/C++, C#, SQL</p>
+    <p><span class="label">AI/ML &amp; deep learning:</span> PyTorch, TensorFlow, Scikit-learn, LangChain, HuggingFace, NumPy, Pandas, OpenCV</p>
+    <p><span class="label">Embedded &amp; on-device ML:</span> ESP32-S3, streaming actor-critic RL, in-house C++ autograd backend, online statistics normalization</p>
+    <p><span class="label">Systems &amp; security:</span> Linux/Unix, Docker, CI/CD (GitHub Actions), Git, network security fundamentals, pwntools, OpenSSL, Wireshark, tcpdump</p>
+    <p><span class="label">Data &amp; cloud:</span> vector databases (ChromaDB), SQLite/MySQL, Firebase Firestore, Azure (Container Apps, Key Vault)</p>
+    <p><span class="label">Robotics &amp; hardware:</span> BLDC motors, CAN bus, Moteus controllers, PID control</p>
+    <p><span class="label">Game development:</span> Unity, Cinemachine</p>
+    <p><span class="label">Practices:</span> data structures &amp; algorithms, data preprocessing, model evaluation, Agile/Scrum, AI-assisted development (Claude Code)</p>
   </section>
 
   <div class="refs">
     <p class="abstract-label">References</p>
     <ol>
-      <li>3D Architectural Reconstruction Pipeline — <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">github.com/vcodes-git/ReconstructionOfHistoricBuildings</a></li>
-      <li>GenAI RAG API Microservice — <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">github.com/vcodes-git/agentic-retail-agent</a></li>
-      <li>Aethon Events Management Platform — <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">github.com/CMPUT301F24helios/Aethon-Events</a></li>
-      <li>Full resume — <a href="Vivek_Patel_Resume.pdf" download>Vivek_Patel_Resume.pdf</a></li>
+      <li>3D Architectural Reconstruction Pipeline · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">github.com/vcodes-git/ReconstructionOfHistoricBuildings</a></li>
+      <li>GenAI RAG API Microservice · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">github.com/vcodes-git/agentic-retail-agent</a></li>
+      <li>Aethon Events Management Platform · <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">github.com/CMPUT301F24helios/Aethon-Events</a></li>
+      <li>Iron Wild · <a href="https://github.com/CMPUT250-100YEARS/Iron-Wild" target="_blank" rel="noopener">github.com/CMPUT250-100YEARS/Iron-Wild</a> · <a href="https://vcodes-itch.itch.io/iron-wild-gold" target="_blank" rel="noopener">play on itch.io</a></li>
+      <li>Full resume · <a href="Vivek_Patel_Resume.pdf" download>Vivek_Patel_Resume.pdf</a></li>
     </ol>
   </div>
 
-  <p class="colophon">Vivek Rajeshbhai Patel · Edmonton, Alberta · last compiled June 2026</p>
+  <p class="colophon">Vivek Patel · Edmonton, Alberta · last compiled September 2026</p>
 
 </div>
 </body>
