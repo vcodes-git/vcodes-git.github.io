@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vivek Patel · Computing Science</title>
-<meta name="description" content="Verified, git-backed engineering portfolio: LLM/RAG systems, embedded on-device RL, computer vision, and full-stack team projects by Vivek Patel, B.Sc. Computing Science, University of Alberta.">
+<meta name="description" content="Vivek Patel, B.Sc. Computing Science, University of Alberta. Applied ML work: on-device reinforcement learning, 3D reconstruction with Gaussian Splatting, and a retrieval-augmented LLM service.">
 <meta property="og:title" content="Vivek Patel · Computing Science">
-<meta property="og:description" content="Verified, git-backed engineering portfolio: LLM/RAG systems, embedded on-device RL, computer vision, and full-stack team projects by Vivek Patel, B.Sc. Computing Science, University of Alberta.">
+<meta property="og:description" content="Applied ML work: on-device reinforcement learning, 3D reconstruction with Gaussian Splatting, and a retrieval-augmented LLM service.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vivek Patel · Computing Science">
-<meta name="twitter:description" content="Verified, git-backed engineering portfolio: LLM/RAG systems, embedded on-device RL, computer vision, and full-stack team projects by Vivek Patel.">
+<meta name="twitter:description" content="Applied ML work: on-device reinforcement learning, 3D reconstruction with Gaussian Splatting, and a retrieval-augmented LLM service.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,8 +21,6 @@
     --ink-soft:#6E6B62;
     --rule:#CFCBC0;
     --link:#1D3E6E;
-    --add:#1A7F37;
-    --track:#E4E1D8;
   }
   *{box-sizing:border-box;}
   body{
@@ -41,6 +39,8 @@
   a{color:var(--link); text-decoration:underline; text-underline-offset:2px;}
   a:focus-visible{outline:2px solid var(--link); outline-offset:2px;}
   .mono{font-family:'JetBrains Mono', monospace;}
+  .cite{font-size:0.9em; white-space:nowrap;}
+  .cite a{text-decoration:none;}
 
   /* ---- Header ---- */
   h1{
@@ -60,8 +60,8 @@
   .contact-line{
     font-size:15px;
     color:var(--ink-soft);
+    margin:0;
   }
-  .contact-line a{color:var(--link);}
   header hr{
     border:none;
     border-top:1.5px solid var(--ink);
@@ -81,7 +81,6 @@
     hyphens:auto;
     margin:0 0 8px;
   }
-  .abstract .mono{font-size:16px;}
 
   /* ---- Section headings ---- */
   h2{
@@ -91,7 +90,6 @@
     border-top:1px solid var(--rule);
     padding-top:28px;
   }
-  section:first-of-type h2{border-top:none; padding-top:0;}
   h3{
     font-size:19px;
     font-weight:600;
@@ -129,25 +127,62 @@
     content:"–  ";
     color:var(--ink-soft);
   }
-  .entry li .m{font-family:'JetBrains Mono', monospace; font-size:16px;}
+  .m{font-family:'JetBrains Mono', monospace; font-size:0.86em;}
+  .entry p.para{margin:0 0 10px;}
 
-  /* ---- Verified-ownership tables (signature element) ---- */
+  /* ---- Figures ---- */
+  figure{margin:22px 0 26px;}
+  figure svg{display:block; width:100%; height:auto;}
+  figcaption{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-top:8px;
+  }
+  figcaption b{font-weight:600; color:var(--ink);}
+  .curve .grid{stroke:var(--rule); stroke-width:1;}
+  .curve .axis-t{fill:var(--ink-soft); font-family:'EB Garamond', Georgia, serif; font-size:13px;}
+  .curve .line{fill:none; stroke:var(--link); stroke-width:2; stroke-linejoin:round; stroke-linecap:round;}
+  .curve .dot{fill:var(--link);}
+  .curve .call{fill:var(--ink); font-family:'JetBrains Mono', monospace; font-size:12px;}
+
+  .panels{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+  }
+  .panels img{
+    display:block;
+    width:100%;
+    aspect-ratio:4 / 3;
+    object-fit:cover;
+    background:#000;
+    border:1px solid var(--rule);
+  }
+  .panels .sub{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    text-align:center;
+    margin-top:4px;
+  }
+
+  /* ---- Tables ---- */
   .table-block{margin:18px 0 26px; overflow-x:auto;}
   .table-caption{
     font-size:14px;
     color:var(--ink-soft);
     margin:0 0 8px;
   }
+  .table-caption b{font-weight:600; color:var(--ink);}
   table{
     width:100%;
     min-width:420px;
     border-collapse:collapse;
-    font-size:14.5px;
+    font-size:15px;
   }
   table th{
     text-align:left;
     font-weight:600;
-    font-size:12.5px;
+    font-size:13px;
     letter-spacing:0.03em;
     color:var(--ink-soft);
     border-top:1.5px solid var(--ink);
@@ -155,23 +190,12 @@
     padding:6px 10px 6px 0;
   }
   table td{
-    padding:8px 10px 8px 0;
+    padding:7px 10px 7px 0;
     border-bottom:1px solid var(--rule);
-    vertical-align:middle;
   }
   table tr:last-child td{border-bottom:1.5px solid var(--ink);}
-  table td.file{font-family:'JetBrains Mono', monospace; font-size:13.5px;}
-  table td.num{font-family:'JetBrains Mono', monospace; font-size:13px; white-space:nowrap; color:var(--ink-soft);}
-  .bar-cell{width:38%;}
-  .bar-track{
-    height:7px;
-    background:var(--track);
-    border-radius:1px;
-    display:flex;
-    overflow:hidden;
-  }
-  .bar-add{background:var(--add); height:100%;}
-  .bar-rest{background:var(--track); height:100%;}
+  table td.n, table th.n{text-align:right; font-family:'JetBrains Mono', monospace; font-size:13.5px; white-space:nowrap;}
+  table th.n{font-family:inherit; font-size:13px;}
 
   /* ---- Skills ---- */
   .skills-list p{margin:0 0 8px; font-size:16.5px;}
@@ -182,9 +206,9 @@
     font-variant:small-caps;
     letter-spacing:0.05em;
     font-weight:600;
-    font-size:14px;
+    font-size:15px;
     color:var(--ink-soft);
-    margin:36px 0 18px;
+    margin:40px 0 0;
     padding-top:20px;
     border-top:1px dashed var(--rule);
   }
@@ -196,7 +220,7 @@
     border-top:1px solid var(--rule);
     font-size:15px;
   }
-  .refs ol{padding-left:1.4em; margin:0;}
+  .refs ol{padding-left:1.8em; margin:0;}
   .refs li{margin-bottom:6px;}
   .colophon{
     text-align:center;
@@ -209,9 +233,9 @@
   @media (max-width:520px){
     body{font-size:16.5px;}
     h1{font-size:36px;}
-    .wrap{padding:44px 18px 60px;}
-    table{font-size:13px;}
-    .bar-cell{width:30%;}
+    .wrap{padding:44px 16px 60px;}
+    table{font-size:13.5px;}
+    .panels{grid-template-columns:1fr; gap:14px;}
   }
 </style>
 </head>
@@ -220,279 +244,216 @@
 
   <header>
     <h1>Vivek Patel</h1>
-    <p class="affiliation">B.Sc. Computing Science, University of Alberta · Systems &amp; Applied ML</p>
+    <p class="affiliation">B.Sc. Computing Science, University of Alberta · Applied Machine Learning</p>
     <p class="contact-line">
-      587-938-7059 ·
       <a href="mailto:patelvivek2372@gmail.com">patelvivek2372@gmail.com</a> ·
       <a href="https://linkedin.com/in/vivekra1" target="_blank" rel="noopener">linkedin.com/in/vivekra1</a> ·
-      <a href="https://github.com/vcodes-git" target="_blank" rel="noopener">github.com/vcodes-git</a> ·
-      <a href="Vivek_Patel_Resume.pdf" download>resume (pdf)</a>
+      <a href="https://github.com/vcodes-git" target="_blank" rel="noopener">github.com/vcodes-git</a>
     </p>
     <hr>
   </header>
 
   <section class="abstract">
     <p class="abstract-label">Abstract</p>
-    <p>This page documents verified engineering work rather than self-assessment. It covers a retrieval-augmented LLM service deployed with least-privilege IAM on Azure, a 3D reconstruction pipeline that reduces point-cloud matching complexity from <span class="mono">O(N²)</span> to <span class="mono">O(N log N)</span>, and three team projects whose ownership claims are backed by git commit history and current-state blame rather than description. Where a contribution is shared, the table beside it shows exactly how it is shared. Repository links are provided in the references below wherever a public repo exists.</p>
+    <p>I graduated in Computing Science from the University of Alberta in 2026. This page collects the work I can talk about in depth: a streaming reinforcement learning agent that learns on a microcontroller, a pipeline that turns phone video into measurable 3D Gaussian Splat models, a retrieval-augmented LLM service deployed on Azure, and several course and team projects. Each entry says what I built, what came out of it, and, for team work, which parts were mine. I am based in Edmonton and looking for ML engineering and data science roles in Canada.</p>
   </section>
 
   <section>
-    <h2>1. Education</h2>
-    <p>University of Alberta, B.Sc. Computing Science, June 2026. 3.9 GPA, First Class Honors, Dean's Silver Medal in Science.</p>
-    <p style="font-size:16px; color:var(--ink-soft);">Relevant coursework: Reinforcement Learning, Computer Vision, Natural Language Processing, Machine Learning II, Basics of Machine Learning, Algorithms I.</p>
+    <h2>1. Research Experience</h2>
+    <div class="entry">
+      <h3 style="margin-top:0;">Undergraduate Research Assistant</h3>
+      <div class="meta-line">
+        <span class="stack">University of Alberta, supervised by Prof. Rupam Mahmood</span>
+        <span class="when">May – Aug 2025</span>
+      </div>
+      <ul>
+        <li>Ran experiments with StreamAC <span class="cite">[<a href="#ref-1">1</a>]</span>, a streaming actor-critic agent that learns on-device, controlling motor speed on an ESP32-S3 microcontroller with no replay buffer or batch updates.</li>
+        <li>The agent learned to hold a target speed: average reward rose from about <span class="m">−720</span> to <span class="m">−70</span> within 4,000 steps (Figure 1).</li>
+        <li>Tuned hyperparameters for the 16-unit actor and critic networks under the memory and compute limits of an in-house C++ autograd backend.</li>
+        <li>Presented results to the lab and proposed the next experiments: a PID baseline and changing the target speed mid-run.</li>
+      </ul>
+
+      <figure class="curve">
+        <svg viewBox="0 0 680 196" role="img" aria-labelledby="fig1-title">
+          <title id="fig1-title">Average reward against training step on the ESP32-S3. Reward climbs from about minus 720 at the start to about minus 70 by step 4,000, then stays flat through step 6,000.</title>
+          <line class="grid" x1="48" y1="14" x2="664" y2="14"/>
+          <line class="grid" x1="48" y1="55.1" x2="664" y2="55.1"/>
+          <line class="grid" x1="48" y1="96.1" x2="664" y2="96.1"/>
+          <line class="grid" x1="48" y1="137.2" x2="664" y2="137.2"/>
+          <line class="grid" x1="48" y1="168" x2="664" y2="168"/>
+          <text class="axis-t" x="40" y="18" text-anchor="end">0</text>
+          <text class="axis-t" x="40" y="59" text-anchor="end">−200</text>
+          <text class="axis-t" x="40" y="100" text-anchor="end">−400</text>
+          <text class="axis-t" x="40" y="141" text-anchor="end">−600</text>
+          <text class="axis-t" x="48" y="187" text-anchor="start">0</text>
+          <text class="axis-t" x="253.3" y="187" text-anchor="middle">2,000</text>
+          <text class="axis-t" x="458.7" y="187" text-anchor="middle">4,000</text>
+          <text class="axis-t" x="664" y="187" text-anchor="end">6,000 steps</text>
+          <polyline class="line" points="68.5,161.8 89.1,159.8 109.6,116.7 130.1,92.0 150.7,75.6 171.2,74.6 191.7,63.3 212.3,49.9 232.8,47.9 253.3,45.8 273.9,42.7 294.4,38.6 314.9,38.6 335.5,32.5 356.0,38.2 376.5,32.1 397.1,32.9 417.6,33.5 438.1,27.3 458.7,28.8 479.2,28.0 499.7,32.5 520.3,28.8 540.8,28.0 561.3,27.8 581.9,25.3 602.4,30.0 622.9,26.7 643.5,27.8 664.0,27.6"/>
+          <circle class="dot" cx="68.5" cy="161.8" r="3.5"/>
+          <circle class="dot" cx="664" cy="27.6" r="3.5"/>
+          <text class="call" x="100" y="164">−720</text>
+          <text class="call" x="656" y="50" text-anchor="end">−70</text>
+        </svg>
+        <figcaption><b>Figure 1.</b> Average reward by training step, learned entirely on the ESP32-S3. From my end-of-term lab presentation.</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section>
     <h2>2. Projects</h2>
 
     <div class="entry">
-      <h3><span class="num">2.1</span>GenAI RAG API Microservice</h3>
+      <h3><span class="num">2.1</span>3D Reconstruction of Structures</h3>
       <div class="meta-line">
-        <span class="stack">Python, LangChain, FastAPI, Docker, Azure</span>
-        <span class="when mono">Jan – Apr 2026 · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">repo ↗</a></span>
+        <span class="stack">Python, COLMAP, SQLite, Open3D, scikit-learn · two-person project</span>
+        <span class="when">Apr 2026 · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">repo ↗</a></span>
       </div>
+      <p class="para">A pipeline that turns ordinary phone video into a 3D Gaussian Splat model you can take measurements from. My parts were the frame matching, the COLMAP database step, point-cloud cleanup, and Gaussian Splatting <span class="cite">[<a href="#ref-2">2</a>]</span>.</p>
       <ul>
-        <li>Built an agentic LLM orchestration pipeline using LangChain and ChromaDB for retrieval-augmented generation, extracting structured business insights from a 10,000-row dataset via local HuggingFace transformer embeddings, and containerized the service with Docker and GitHub Actions CI/CD.</li>
-        <li>Deployed the service on Azure Container Apps with Key Vault-backed secret management and a system-assigned managed identity, scoping AcrPull and Key Vault Secrets User roles to enforce least-privilege access at runtime.</li>
-        <li>Accelerated development with Claude Code for boilerplate generation and debugging across the FastAPI service and Pydantic schemas.</li>
+        <li>Sequential frame-to-frame matching broke the reconstruction into fragments. I replaced it with KD-tree nearest-neighbour search over a temporal window of nearby frames, which keeps matching close to <span class="m">O(N log N)</span> instead of the <span class="m">O(N²)</span> of matching every pair.</li>
+        <li>Wrote the script that loads those verified matches into COLMAP's SQLite database to seed its mapper, and initialized bundle adjustment with the OPENCV camera model so the ultra-wide lens distortion could be solved and removed (the building had been bowing inward).</li>
+        <li>Cleaned the sparse point cloud with statistical outlier removal and DBSCAN. This dropped 2.1% of points, mostly floaters in the sky, and lowered mean reprojection error from <span class="m">0.426</span> to <span class="m">0.421 px</span>.</li>
+        <li>Trained 3D Gaussian Splatting for 30,000 iterations from the cleaned cloud. Starting from clean geometry is what kept the splats from filling empty space with floating artifacts.</li>
       </ul>
-    </div>
 
-    <div class="entry">
-      <h3><span class="num">2.2</span>Machine Learning Algorithm Implementations</h3>
-      <div class="meta-line">
-        <span class="stack">Python, NumPy, SciPy</span>
-        <span class="when mono">Dec 2025</span>
-      </div>
-      <ul>
-        <li>Built a supervised autoencoder with a from-scratch deep neural network architecture, including custom evaluation metrics and k-fold cross-validation for hyperparameter selection and model validation.</li>
-        <li>Implemented mini-batch gradient descent with MSE loss and Lasso (L1) / Ridge (L2) regularization, grounding the optimization pipeline directly in linear algebra and statistics rather than a deep learning framework.</li>
-        <li>Developed kernel and linear data representations with Lasso-based prototype selection, evaluating feature sparsity and generalization via repeated random subsampling.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <h3><span class="num">2.3</span>3D Architectural Reconstruction Pipeline</h3>
-      <div class="meta-line">
-        <span class="stack">Python, COLMAP, computer vision, NumPy</span>
-        <span class="when mono">Apr 2026 · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">repo ↗</a></span>
-      </div>
-      <ul>
-        <li>Eliminated fragmented point cloud failures by replacing sequential brute-force matching with a temporal window-based approach and KD-tree indexed ANN search, reducing matching complexity from <span class="m">O(N²)</span> to <span class="m">O(N log N)</span>.</li>
-        <li>Wrote a script to inject verified matches into COLMAP's SQLite database, correcting radial distortion via OpenCV-to-PINHOLE conversion and applying SOR and DBSCAN outlier removal to achieve sub-pixel reprojection accuracy (<span class="m">0.421px</span>).</li>
-        <li>Implemented 3D Gaussian Splatting over 30,000 iterations initialized from the cleaned sparse point cloud, achieving under <span class="m">2.3%</span> geometric error on window dimensions verified against real-world measurements.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <h3><span class="num">2.4</span>End-to-End NLP &amp; Language Generation Pipeline</h3>
-      <div class="meta-line">
-        <span class="stack">Python, n-grams, CFG, regex</span>
-        <span class="when mono">Sept – Dec 2025</span>
-      </div>
-      <ul>
-        <li>Wrote the core preprocessing pipeline for a phonetic transcription system converting CHILDES transcripts into ARPAbet pronunciations, including a fallback approximator that stitches known sub-word pronunciations for out-of-dictionary words.</li>
-        <li>Ported and extended a hand-built context-free grammar and CYK-style parser to classify sentence grammaticality, contributing most of the analysis behind <span class="m">33.59%</span> precision and <span class="m">62.59%</span> recall across 603 test cases.</li>
-        <li>Co-authored the corpus preprocessing and n-gram training/evaluation modules with two teammates, implementing CLI validation and JSON model serialization and resolving merge conflicts to integrate parallel work.</li>
-        <li>Owned the largest share of the language modeling and generation codebase, implementing OOV/UNK thresholding and all three text-generation modes, and tuning interpolation weights via grid search and EM.</li>
-      </ul>
+      <figure>
+        <div class="panels">
+          <div>
+            <img src="https://raw.githubusercontent.com/vcodes-git/ReconstructionOfHistoricBuildings/main/assets/csc_render_slow.gif" alt="Gaussian Splat render of the University of Alberta CSC building" loading="lazy">
+            <div class="sub">(a) CSC building</div>
+          </div>
+          <div>
+            <img src="https://raw.githubusercontent.com/vcodes-git/ReconstructionOfHistoricBuildings/main/assets/engine1_splat_vis_cleaned.gif" alt="Gaussian Splat render of a jet engine model" loading="lazy">
+            <div class="sub">(b) Jet engine model</div>
+          </div>
+          <div>
+            <img src="https://raw.githubusercontent.com/vcodes-git/ReconstructionOfHistoricBuildings/main/assets/toy_house_splat_vis.gif" alt="Gaussian Splat render of a toy house" loading="lazy">
+            <div class="sub">(c) Toy house</div>
+          </div>
+        </div>
+        <figcaption><b>Figure 2.</b> Gaussian Splat renders produced by the pipeline from handheld phone video.</figcaption>
+      </figure>
 
       <div class="table-block">
-        <p class="table-caption">Table 1. Net lines changed on the four largest files, by commit diff (asn4, the assignment carrying the OOV/tuning work above). Bar length scaled to the largest total change in the set; green segment is additions.</p>
+        <p class="table-caption"><b>Table 1.</b> Measurements taken from the splat models against real measurements, after scaling each model by one global factor. CSC building (scale 9.21) and toy house (scale 0.081).</p>
         <table>
-          <thead><tr><th>File</th><th class="bar-cell">Diff</th><th>Changed</th></tr></thead>
+          <thead><tr><th>Dataset</th><th>Measurement</th><th class="n">Real (cm)</th><th class="n">Splat (cm)</th><th class="n">Error</th></tr></thead>
           <tbody>
-            <tr>
-              <td class="file">src/eval.py</td>
-              <td class="bar-cell"><div class="bar-track" style="width:79%"><span class="bar-add" style="width:83%"></span><span class="bar-rest" style="width:17%"></span></div></td>
-              <td class="num">+341 / −70</td>
-            </tr>
-            <tr>
-              <td class="file">src/train.py</td>
-              <td class="bar-cell"><div class="bar-track" style="width:59%"><span class="bar-add" style="width:87%"></span><span class="bar-rest" style="width:13%"></span></div></td>
-              <td class="num">+268 / −39</td>
-            </tr>
-            <tr>
-              <td class="file">src/tune.py</td>
-              <td class="bar-cell"><div class="bar-track" style="width:100%"><span class="bar-add" style="width:51%"></span><span class="bar-rest" style="width:49%"></span></div></td>
-              <td class="num">+264 / −256</td>
-            </tr>
-            <tr>
-              <td class="file">src/preprocessor.py</td>
-              <td class="bar-cell"><div class="bar-track" style="width:52%"><span class="bar-add" style="width:90%"></span><span class="bar-rest" style="width:10%"></span></div></td>
-              <td class="num">+243 / −26</td>
-            </tr>
+            <tr><td>CSC building</td><td>Window width</td><td class="n">160.00</td><td class="n">156.57</td><td class="n">2.14%</td></tr>
+            <tr><td>CSC building</td><td>Window height</td><td class="n">198.00</td><td class="n">202.62</td><td class="n">2.33%</td></tr>
+            <tr><td>Toy house</td><td>Roof side 1</td><td class="n">7.00</td><td class="n">7.13</td><td class="n">1.86%</td></tr>
+            <tr><td>Toy house</td><td>Roof side 2</td><td class="n">8.00</td><td class="n">7.70</td><td class="n">3.75%</td></tr>
+            <tr><td>Toy house</td><td>Window width</td><td class="n">2.30</td><td class="n">2.27</td><td class="n">1.30%</td></tr>
+            <tr><td>Toy house</td><td>Body side 1</td><td class="n">5.20</td><td class="n">5.18</td><td class="n">0.38%</td></tr>
           </tbody>
         </table>
       </div>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.2</span>Retail Analytics RAG Service</h3>
+      <div class="meta-line">
+        <span class="stack">Python, LangChain, ChromaDB, FastAPI, Docker, Azure</span>
+        <span class="when">Jan – Apr 2026 · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">repo ↗</a></span>
+      </div>
+      <ul>
+        <li>Built an API that answers plain-English questions about a 10,000-row synthetic retail inventory, using LangChain and ChromaDB for retrieval and Gemini 2.5 Flash to write the answers.</li>
+        <li>Switched to local HuggingFace embeddings (all-MiniLM-L6-v2) after the cloud embedding API kept rate-limiting ingestion, and moved embedding into FastAPI's startup hook so it runs once.</li>
+        <li>Deployed on Azure Container Apps with Docker and GitHub Actions. The API key is read from Key Vault through a managed identity that holds only the AcrPull and Key Vault Secrets User roles, so no secret lives in the image or the repo.</li>
+        <li>Used Claude Code for boilerplate and debugging across the FastAPI service.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.3</span>Language Modeling and Grammar</h3>
+      <div class="meta-line">
+        <span class="stack">Python, n-grams, context-free grammars, regex · three-person team</span>
+        <span class="when">Sept – Dec 2025</span>
+      </div>
+      <ul>
+        <li>Wrote the CHILDES corpus cleaning, OOV thresholding, three Monte Carlo text-generation modes, and grid-search and EM tuning of interpolation weights. The trigram model reached <span class="m">6.33</span> dev-set perplexity against <span class="m">34.75</span> for the unigram baseline.</li>
+        <li>Built the preprocessing for a system that converts CHILDES transcripts into ARPAbet pronunciations, with a fallback that stitches together known sub-word pronunciations for words missing from the dictionary.</li>
+        <li>Extended a hand-built context-free grammar and CYK-style parser to judge whether sentences are grammatical: <span class="m">33.59%</span> precision and <span class="m">62.59%</span> recall over 603 test cases.</li>
+      </ul>
     </div>
 
     <p class="tier-divider">Additional Projects</p>
 
     <div class="entry">
-      <h3><span class="num">2.5</span>Aethon Events Management Platform</h3>
+      <h3><span class="num">2.4</span>Machine Learning Algorithms from Scratch</h3>
       <div class="meta-line">
-        <span class="stack">Java, Android Studio, Firebase, NoSQL</span>
-        <span class="when mono">Dec 2024 · <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">repo ↗</a></span>
+        <span class="stack">Python, NumPy, SciPy</span>
+        <span class="when">Dec 2025</span>
       </div>
-      <ul>
-        <li>Built the app's device-recognition entry point, querying Firestore by device ID to route users to the Admin interface, main app, or sign-up flow based on account role.</li>
-        <li>Owned the notification system end-to-end, rewriting an initial MVC scaffold into Firestore-driven logic that builds and delivers per-event notifications, backed by a dedicated JUnit test suite covering notification, profile, and sign-up flows.</li>
-      </ul>
-
-      <div class="table-block">
-        <p class="table-caption">Table 2. Current-state ownership by git blame, four-person team. Bar shows share of the file's present-day lines that are mine.</p>
-        <table>
-          <thead><tr><th>File</th><th class="bar-cell">Share</th><th>Lines</th></tr></thead>
-          <tbody>
-            <tr>
-              <td class="file">LandingActivity.java</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:99%"></span><span class="bar-rest" style="width:1%"></span></div></td>
-              <td class="num">81 / 82</td>
-            </tr>
-            <tr>
-              <td class="file">MainActivity.java <span style="color:var(--ink-soft); font-style:italic;">(notifications)</span></td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:59%"></span><span class="bar-rest" style="width:41%"></span></div></td>
-              <td class="num">161 / 275</td>
-            </tr>
-            <tr>
-              <td class="file">ProfileActivity.java</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:56%"></span><span class="bar-rest" style="width:44%"></span></div></td>
-              <td class="num">141 / 250</td>
-            </tr>
-            <tr>
-              <td class="file">SignUpActivity.java</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:48%"></span><span class="bar-rest" style="width:52%"></span></div></td>
-              <td class="num">89 / 184</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p class="para">A supervised autoencoder, mini-batch gradient descent with L1 and L2 regularization, and kernel representations with Lasso-based prototype selection, written without a deep learning framework and evaluated with k-fold cross-validation and repeated random subsampling.</p>
     </div>
 
     <div class="entry">
-      <h3><span class="num">2.6</span>Autonomous Penalty Shooter Robot</h3>
+      <h3><span class="num">2.5</span>Autonomous Penalty-Shooter Robot</h3>
       <div class="meta-line">
-        <span class="stack">Python, BLDC motors, CAN bus, PID control</span>
-        <span class="when mono">Dec 2025</span>
+        <span class="stack">Python, BLDC motors, Moteus controllers, CAN bus, PID control</span>
+        <span class="when">Dec 2025</span>
       </div>
-      <ul>
-        <li>Built a robotic penalty-kicking system using two brushless DC (BLDC) motors and Moteus controllers over a CAN bus interface to actuate a custom metal leg structure.</li>
-        <li>Developed a Python control pipeline applying quadratic and linear interpolation alongside trigonometric modeling to map 2D GUI coordinates to motor commands.</li>
-        <li>Tuned PID gains for motor stiffness and characterized hardware acceleration limits, reaching a targeting accuracy with an error margin smaller than the ball's diameter at a <span class="m">2.5m</span> range.</li>
-      </ul>
+      <p class="para">Two brushless DC motors on a CAN bus drive a metal kicking leg. A Python pipeline turns a click on a 2D GUI into motor commands using interpolation and trigonometric modeling. After tuning PID gains, shots landed within a ball's width of the target at <span class="m">2.5&nbsp;m</span>.</p>
     </div>
 
     <div class="entry">
-      <h3><span class="num">2.7</span>Applied Cryptography &amp; Security Coursework</h3>
+      <h3><span class="num">2.6</span>Applied Cryptography and Security</h3>
       <div class="meta-line">
-        <span class="stack">C/C++, Python, OpenSSL, Wireshark, pwntools</span>
-        <span class="when mono">Feb – Mar 2026</span>
+        <span class="stack">Python, OpenSSL, Wireshark, tcpdump, pwntools</span>
+        <span class="when">Feb – Mar 2026</span>
       </div>
-      <ul>
-        <li>Implemented a Winternitz One-Time Signature (WOTS) scheme with OpenSSL and SHA3-256, and designed a Chosen Plaintext Attack that recovered the <span class="m">128-bit</span> secret key of a custom AES-128/ARIA-128 hybrid cipher.</li>
-        <li>Analyzed encrypted TLS traffic with Wireshark and tcpdump and built a buffer-overflow exploit in isolated VM environments to study key-exchange and memory-safety vulnerabilities firsthand.</li>
-      </ul>
+      <p class="para">Implemented Winternitz one-time signatures with SHA3-256, recovered the <span class="m">128-bit</span> key of a custom AES and ARIA hybrid cipher with a chosen-plaintext attack, analyzed encrypted TLS traffic, and wrote a buffer-overflow exploit inside an isolated VM.</p>
+    </div>
+
+    <div class="entry">
+      <h3><span class="num">2.7</span>Aethon Events</h3>
+      <div class="meta-line">
+        <span class="stack">Java, Android Studio, Firebase Firestore, JUnit · six-person team</span>
+        <span class="when">Dec 2024 · <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">repo ↗</a></span>
+      </div>
+      <p class="para">An Android event-management app. I built the launch check that looks users up in Firestore by device ID and sends them to the admin, main, or sign-up screens, rewrote notifications to run off Firestore, and wrote the JUnit and UI tests for profiles, sign-up, device recognition, and notifications.</p>
     </div>
 
     <div class="entry">
       <h3><span class="num">2.8</span>Iron Wild</h3>
       <div class="meta-line">
-        <span class="stack">Unity 2019.4, C#, Cinemachine</span>
-        <span class="when mono">Sept 2024 – Feb 2025 · <a href="https://github.com/CMPUT250-100YEARS/Iron-Wild" target="_blank" rel="noopener">repo ↗</a> · <a href="https://vcodes-itch.itch.io/iron-wild-gold" target="_blank" rel="noopener">play ↗</a></span>
+        <span class="stack">Unity 2019.4, C#, Cinemachine · six-person team</span>
+        <span class="when">Sept 2024 – Feb 2025 · <a href="https://github.com/CMPUT250-100YEARS/Iron-Wild" target="_blank" rel="noopener">repo ↗</a> · <a href="https://vcodes-itch.itch.io/iron-wild-gold" target="_blank" rel="noopener">play ↗</a></span>
       </div>
-      <ul>
-        <li>Built the mini-boss's AI and attack loop in a 6-person Unity survival game: patrol/hover behavior, a telegraphed dive attack, and health/death state handling.</li>
-        <li>Built the projectile and damage-routing system connecting player attacks to four enemy types, plus a reusable Cinemachine-based camera-shake utility triggered on impact.</li>
-        <li>Built an NPC companion with follow/hide behavior driven by player visibility, and the detection-trigger plumbing shared across enemy types.</li>
-      </ul>
-
-      <div class="table-block">
-        <p class="table-caption">Table 3. Current-state ownership by git blame, 6-person team (CMPUT 250). Bar shows share of the file's present-day lines that are mine. Player.cs and Enemy.cs are original interface/plumbing code that survives after a teammate rewrote the movement and AI implementations on top of it.</p>
-        <table>
-          <thead><tr><th>File</th><th class="bar-cell">Share</th><th>Lines</th></tr></thead>
-          <tbody>
-            <tr>
-              <td class="file">CineMCamShake.cs</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:100%"></span><span class="bar-rest" style="width:0%"></span></div></td>
-              <td class="num">58 / 58</td>
-            </tr>
-            <tr>
-              <td class="file">DetectionZone.cs</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:94%"></span><span class="bar-rest" style="width:6%"></span></div></td>
-              <td class="num">45 / 48</td>
-            </tr>
-            <tr>
-              <td class="file">Kid.cs</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:86%"></span><span class="bar-rest" style="width:14%"></span></div></td>
-              <td class="num">119 / 138</td>
-            </tr>
-            <tr>
-              <td class="file">Bullet.cs</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:83%"></span><span class="bar-rest" style="width:17%"></span></div></td>
-              <td class="num">96 / 115</td>
-            </tr>
-            <tr>
-              <td class="file">MiniBoss.cs</td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:71%"></span><span class="bar-rest" style="width:29%"></span></div></td>
-              <td class="num">273 / 383</td>
-            </tr>
-            <tr>
-              <td class="file">Player.cs <span style="color:var(--ink-soft); font-style:italic;">(prototyped)</span></td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:18%"></span><span class="bar-rest" style="width:82%"></span></div></td>
-              <td class="num">205 / 1143</td>
-            </tr>
-            <tr>
-              <td class="file">Enemy.cs <span style="color:var(--ink-soft); font-style:italic;">(prototyped)</span></td>
-              <td class="bar-cell"><div class="bar-track"><span class="bar-add" style="width:17%"></span><span class="bar-rest" style="width:83%"></span></div></td>
-              <td class="num">48 / 285</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p class="para">A Unity survival game. I built the mini-boss AI and its telegraphed dive attack, the projectile and damage routing for four enemy types, a camera-shake effect on impact, a companion NPC that hides based on what the player can see, and the detection triggers the enemies share.</p>
     </div>
   </section>
 
   <section>
-    <h2>3. Experience</h2>
-    <div class="entry">
-      <h3 style="margin-top:0;">Undergraduate Research Assistant</h3>
-      <div class="meta-line">
-        <span class="stack">University of Alberta (supervised by Prof. Rupam Mahmood)</span>
-        <span class="when mono">May – Aug 2025</span>
-      </div>
-      <ul>
-        <li>Contributed to applied AI research by deploying a streaming actor-critic reinforcement learning policy onto a resource-constrained ESP32-S3 microcontroller, translating a research-stage algorithm into a working real-time system.</li>
-        <li>Developed deep working knowledge of an in-house C++ autograd backend and on-device training loop, running experiments and parameter tuning to optimize performance under real hardware constraints.</li>
-        <li>Processed high-frequency real-time sensor data and implemented online running statistics for observation and reward normalization, maintaining stable model performance under dynamic operating conditions.</li>
-      </ul>
-    </div>
+    <h2>3. Education</h2>
+    <p>University of Alberta, B.Sc. Honours in Computing Science, June 2026. 3.9 GPA, First Class Honours, Dean's Silver Medal in Science.</p>
+    <p style="font-size:16px; color:var(--ink-soft);">Relevant coursework: Machine Learning II, Reinforcement Learning, Computer Vision, Natural Language Processing, Probability &amp; Statistics, File &amp; Database Management.</p>
   </section>
 
   <section class="skills-list">
     <h2>4. Skills</h2>
-    <p><span class="label">Languages:</span> Python, Java, C/C++, C#, SQL</p>
-    <p><span class="label">AI/ML &amp; deep learning:</span> PyTorch, TensorFlow, Scikit-learn, LangChain, HuggingFace, NumPy, Pandas, OpenCV</p>
-    <p><span class="label">Embedded &amp; on-device ML:</span> ESP32-S3, streaming actor-critic RL, in-house C++ autograd backend, online statistics normalization</p>
-    <p><span class="label">Systems &amp; security:</span> Linux/Unix, Docker, CI/CD (GitHub Actions), Git, network security fundamentals, pwntools, OpenSSL, Wireshark, tcpdump</p>
-    <p><span class="label">Data &amp; cloud:</span> vector databases (ChromaDB), SQLite/MySQL, Firebase Firestore, Azure (Container Apps, Key Vault)</p>
-    <p><span class="label">Robotics &amp; hardware:</span> BLDC motors, CAN bus, Moteus controllers, PID control</p>
-    <p><span class="label">Game development:</span> Unity, Cinemachine</p>
-    <p><span class="label">Practices:</span> data structures &amp; algorithms, data preprocessing, model evaluation, Agile/Scrum, AI-assisted development (Claude Code)</p>
+    <p><span class="label">Languages:</span> Python, C/C++, Java, C#, SQL</p>
+    <p><span class="label">ML &amp; data:</span> PyTorch, TensorFlow, scikit-learn, NumPy, Pandas, OpenCV, HuggingFace</p>
+    <p><span class="label">LLMs &amp; backend:</span> LangChain, ChromaDB, FastAPI, Pydantic</p>
+    <p><span class="label">Cloud &amp; tools:</span> Azure, Docker, GitHub Actions, Git, Linux, Firebase Firestore, pytest, JUnit</p>
+    <p><span class="label">3D &amp; vision:</span> COLMAP, Open3D, Gaussian Splatting</p>
+    <p><span class="label">Hardware:</span> ESP32-S3, BLDC motors, CAN bus, PID control</p>
   </section>
 
   <div class="refs">
     <p class="abstract-label">References</p>
     <ol>
-      <li>3D Architectural Reconstruction Pipeline · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">github.com/vcodes-git/ReconstructionOfHistoricBuildings</a></li>
-      <li>GenAI RAG API Microservice · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">github.com/vcodes-git/agentic-retail-agent</a></li>
-      <li>Aethon Events Management Platform · <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">github.com/CMPUT301F24helios/Aethon-Events</a></li>
+      <li id="ref-1">M. Elsayed, G. Vasan, A. R. Mahmood. Streaming Deep Reinforcement Learning Finally Works. 2024. <a href="https://arxiv.org/abs/2410.14606" target="_blank" rel="noopener">arXiv:2410.14606</a></li>
+      <li id="ref-2">3D Reconstruction of Structures, CMPUT 428 final project report · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings/blob/main/assets/CMPUT428_Final_Project_Paper_Reconstruction_of_Structures.pdf" target="_blank" rel="noopener">paper (PDF)</a> · <a href="https://github.com/vcodes-git/ReconstructionOfHistoricBuildings" target="_blank" rel="noopener">github.com/vcodes-git/ReconstructionOfHistoricBuildings</a></li>
+      <li>Retail Analytics RAG Service · <a href="https://github.com/vcodes-git/agentic-retail-agent" target="_blank" rel="noopener">github.com/vcodes-git/agentic-retail-agent</a></li>
+      <li>Aethon Events · <a href="https://github.com/CMPUT301F24helios/Aethon-Events" target="_blank" rel="noopener">github.com/CMPUT301F24helios/Aethon-Events</a></li>
       <li>Iron Wild · <a href="https://github.com/CMPUT250-100YEARS/Iron-Wild" target="_blank" rel="noopener">github.com/CMPUT250-100YEARS/Iron-Wild</a> · <a href="https://vcodes-itch.itch.io/iron-wild-gold" target="_blank" rel="noopener">play on itch.io</a></li>
-      <li>Full resume · <a href="Vivek_Patel_Resume.pdf" download>Vivek_Patel_Resume.pdf</a></li>
     </ol>
   </div>
 
-  <p class="colophon">Vivek Patel · Edmonton, Alberta · last compiled September 2026</p>
+  <p class="colophon">Vivek Patel · Edmonton, Alberta · last updated October 2026</p>
 
 </div>
 </body>
